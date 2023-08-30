@@ -36,7 +36,17 @@ Constraints:
 - `1 <= k <= n!`
 
 # My Solution
+## Intuition
+The intuition behind this solution is to find the kth permutation of a sequence of numbers from 1 to n.
 
+## Approach
+The approach to solving this problem involves calculating the factorial of a given number `n` using the `factorial` function. This factorial value is used to determine the number of permutations possible for each position in the resulting string. The algorithm iterates through the numbers from 1 to `n` and constructs the initial string `arr` with all the numbers. It then constructs the resulting string `result` by selecting digits from `arr` based on the value of `k`. At each step, the digit at the current position is determined using the `k` value divided by `(n-1)!`, and the appropriate digit is appended to the `result` string. The selected digit is then removed from the `arr`, and the `k` value is updated. The process continues until all positions are filled, and the resulting string is the kth permutation.
+
+## Complexity
+- Time complexity: **O(n^2)**  
+- Space complexity: **O(n)**  
+
+## Code
 ```cpp
 class Solution {
 public:
@@ -53,8 +63,8 @@ public:
             arr += to_string(i);
         }
 
-        string result = ""; 
-        k--; 
+        string result = "";
+        k--;
         while (n) {
             int f = factorial(n - 1);
             int index = k / f;
@@ -67,5 +77,4 @@ public:
         return result;
     }
 };
-
 ```
