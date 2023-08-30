@@ -28,8 +28,23 @@ Constraints:
 - `-2^31 <= n <= 2^31 - 1`
 
 # My Solution
+## Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+To check the power of two we could use bit manipulation. As, n >> 1 is equivalent to n / 2. We could use recursion to decrease time complexity.
 
-```cpp
+## Approach
+<!-- Describe your approach to solving the problem. -->
+We can repeatedly divided n by 2 and use the base case to check if n was less than or equal to zero to return false, if n was equal to one to return true and if n wasn't a multiple of two to return false.
+
+## Complexity
+- Time complexity: O(1)
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+
+- Space complexity: O(n)
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+
+## Code
+```
 class Solution {
 public:
     bool isPowerOfTwo(int n) {
