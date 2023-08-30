@@ -34,23 +34,33 @@ Constraints:
 - `-10^4 <= target <= 10^4`
 
 # My Solution
+## Intuition
+The intuition behind this solution is to find the position where a given target number should be inserted in a sorted vector of numbers.
 
+## Approach
+The approach to solving this problem involves iterating through the sorted vector of numbers `nums` and comparing each number with the target number. By comparing adjacent numbers, the code determines the position where the target should be inserted to maintain the sorted order. If the target is found, the corresponding index is returned. If the target is not found, the index where the target should be inserted is returned.
+
+## Complexity
+- Time complexity: **O(n)** 
+- Space complexity: **O(1)**  
+
+## Code
 ```cpp
 class Solution {
 public:
     int searchInsert(vector<int>& nums, int target) {
         int i = 0;
 
-        for(i = 0; i < nums.size() - 1; i++) {
-            if(nums[i] == target)
+        for (i = 0; i < nums.size() - 1; i++) {
+            if (nums[i] == target)
                 return i;
-            else if(nums[i] < target && nums[i + 1] > target)
+            else if (nums[i] < target && nums[i + 1] > target)
                 return i + 1;
         }
 
-        if(target > nums[i])
+        if (target > nums[i])
             return i + 1;
-        if(target == nums[i])
+        if (target == nums[i])
             return i;
         return 0;
     }
