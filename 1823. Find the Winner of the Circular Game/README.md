@@ -38,7 +38,24 @@ Constraints:
 - `1 <= k <= n <= 500`
 
 # My Solution
-```cpp
+## Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+This is the [Josephus Problem](https://en.wikipedia.org/wiki/Josephus_problem).
+
+## Approach
+<!-- Describe your approach to solving the problem. -->
+This implementation follows the recursive structure you described and the problem's requirements. It calculates the winner's position using the Josephus formula (jos(n – 1, k) + k) % n. The base case is when there's only one person left (n == 1), and in that case, the function returns 0 as the winner's position. But as this problem is in starts from we increment the result by 1.
+
+Given the number of friends n and the integer k, you can use this function to find the winner of the game. The approach utilizes the Josephus problem's recursive pattern to determine the position of the winner.
+## Complexity
+- Time complexity: O(n)
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+
+- Space complexity: O(n)
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+
+## Code
+```
 class Solution {
 public:
     int jos(int n, int k) {
