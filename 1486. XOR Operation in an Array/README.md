@@ -29,16 +29,29 @@ Constraints:
 - `n == nums.length`
 
 # My Solution
+## Intuition
+The intuition behind this solution is to compute the XOR operation on an array of numbers with a specific starting value and a common difference between elements.
 
+## Approach
+The approach to solving this problem involves generating an array of numbers based on the given `start` value and a common difference of 2. The `nums` array is constructed by iterating `n` times and calculating each element as `start + 2 * i`, where `i` is the index of the current element. After constructing the array, the XOR operation is performed on all elements in the array using a loop. The final result is the XOR value obtained.
+
+## Complexity
+- Time complexity: **O(n)**  
+  The time complexity is determined by the two loops: one for constructing the `nums` array and another for performing the XOR operation. Both loops iterate `n` times.
+
+- Space complexity: **O(n)**  
+  The space complexity is determined by the space used to store the `nums` array, which contains `n` elements.
+
+## Code
 ```cpp
 class Solution {
 public:
     int xorOperation(int n, int start) {
         int nums[n], res = 0;
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             nums[i] = start + 2 * i;
         }
-        for(int i = 0; i < n; i++) {
+        for (int i = 0; i < n; i++) {
             res = res ^ nums[i];
         }
 
