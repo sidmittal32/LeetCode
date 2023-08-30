@@ -28,7 +28,21 @@ Constraints:
 - `0 <= x, y <= 2^31 - 1`
 
 # My Solution
-```cpp
+## Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+If we XOR x and y the position at which corresponding bits are different are set.
+## Approach
+<!-- Describe your approach to solving the problem. -->
+We XOR x and y and count the number of set bits to obtain the hamming distance.
+## Complexity
+- Time complexity: O(1)
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+
+- Space complexity: O(1)
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+
+## Code
+```
 class Solution {
 public:
     int countSetBits(int n) {
