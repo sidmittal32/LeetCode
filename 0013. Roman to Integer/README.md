@@ -53,24 +53,34 @@ Constraints:
 - It is guaranteed that `s` is a valid roman numeral in the range `[1, 3999]`.
 
 # My Solution
+## Intuition
+The intuition behind this solution is to convert a Roman numeral string into an integer.
 
+## Approach
+The approach to solving this problem involves iterating through the Roman numeral string from left to right. For each character, its corresponding integer value is obtained using a helper function `roman_to_integer`. If the current integer value is less than the integer value of the next character, it indicates subtraction should occur (e.g., "IV" for 4). Otherwise, addition is performed. The integer value is updated accordingly, and the loop continues.
+
+## Complexity
+- Time complexity: **O(n)**  
+- Space complexity: **O(1)**  
+
+## Code
 ```cpp
 class Solution {
 public:
     int roman_to_integer(char c) {
-        if(c == 'I')
+        if (c == 'I')
             return 1;
-        else if(c == 'V')
+        else if (c == 'V')
             return 5;
-        else if(c == 'X')
+        else if (c == 'X')
             return 10;
-        else if(c == 'L')
+        else if (c == 'L')
             return 50;
-        else if(c == 'C')
+        else if (c == 'C')
             return 100;
-        else if(c == 'D')
+        else if (c == 'D')
             return 500;
-        else if(c == 'M')
+        else if (c == 'M')
             return 1000;
         return -1;
     }
@@ -78,21 +88,19 @@ public:
     int romanToInt(string s) {
         int integer = 0;
 
-        for(int i = 0; i < s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
             int s_1 = roman_to_integer(s[i]);
 
-            if(i + 1 < s.length()) {
+            if (i + 1 < s.length()) {
                 int s_2 = roman_to_integer(s[i + 1]);
 
-                if(s_1 >= s_2) {
+                if (s_1 >= s_2) {
                     integer += s_1;
-                }
-                else {
+                } else {
                     integer += s_2 - s_1;
                     i++;
                 }
-            }
-            else {
+            } else {
                 integer += s_1;
             }
         }
@@ -100,4 +108,3 @@ public:
         return integer;
     }
 };
-```
