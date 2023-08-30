@@ -29,7 +29,31 @@ Constraints:
 - `num` does not contain `0` as one of its digits.
 
 # My Solution
-```cpp
+## Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+The intuition behind this solution is to iterate through the digits of the given number `num`, and for each digit, check if it divides the original number `num`. If it does, increment a count to keep track of how many digits of `num` are divisors.
+
+## Approach
+<!-- Describe your approach to solving the problem. -->
+The approach to solving this problem involves the following steps:
+
+1. Initialize `n` with the value of `num` to preserve the original number.
+2. Initialize variables `digit`, which will store each digit of the number in each iteration, and `count` to keep track of the number of digits that are divisors of the original number.
+3. Use a while loop to iterate through the digits of the number:
+    - Extract the rightmost digit of `n` using `n % 10` and store it in the variable `digit`.
+    - Check if the original number `num` is divisible by the extracted digit digit (i.e., `num % digit == 0`). If it is, increment the `count`.
+    - Perform integer division to remove the rightmost digit from `n` (i.e., `n /= 10`).
+4. After the loop completes, return the `count` as the result.
+
+## Complexity
+- Time complexity: O(log n)
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+
+- Space complexity: O(1)
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+
+## Code
+```
 class Solution {
 public:
     int countDigits(int num) {
