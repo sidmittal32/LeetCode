@@ -29,7 +29,22 @@ Constraints
 - `0 <= celsius <= 1000`
 
 # My Solution
+## Intuition
+The intuition behind this solution is to convert a temperature value from Celsius to Kelvin and Fahrenheit.
 
+## Approach
+The approach to solving this problem involves using the conversion formulas for temperature conversion:
+- Celsius to Kelvin: Celsius + 273.15
+- Celsius to Fahrenheit: Celsius * 1.80 + 32.00
+
+The `convertTemperature` function takes a temperature value in Celsius as input and returns a vector containing the converted values in Kelvin and Fahrenheit.
+
+## Complexity
+- Time complexity: **O(1)**  
+
+- Space complexity: **O(1)**  
+
+## Code
 ```cpp
 class Solution {
 public:
