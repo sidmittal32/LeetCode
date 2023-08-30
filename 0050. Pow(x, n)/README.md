@@ -31,33 +31,43 @@ Constraints:
 - `-104 <= xn <= 104`
 
 # My Solution
+## Intuition
+The intuition behind this solution is to calculate the power of a given base `x` raised to the exponent `n`.
 
+## Approach
+The approach to solving this problem involves using a recursive function `fastPow` to calculate the power efficiently. The main function `myPow` handles the special cases where `n` is zero, negative, or the minimum possible value. In the `fastPow` function, the power is calculated recursively by using the concept that `x^n` can be computed as `(x^(n/2))^2` if `n` is even, or as `x * (x^(n/2))^2` if `n` is odd.
+
+## Complexity
+- Time complexity: **O(log n)** 
+- Space complexity: **O(log n)**  
+
+## Code
 ```cpp
 class Solution {
 public:
     double myPow(double x, int n) {
         if (n == 0)
             return 1.0;
-        
+
         if (n == -2147483648) {
             x = 1 / x;
             n = -(n + 1);
             return x * fastPow(x, n);
         }
-        
+
         if (n < 0) {
             x = 1 / x;
             n = -n;
         }
-        
+
         return fastPow(x, n);
     }
-    
+
 private:
     double fastPow(double x, int n) {
-        if (n == 1)  
+        if (n == 1)
             return x;
-        
+
         double temp = fastPow(x, n / 2);
         temp = temp * temp;
         if (n % 2 == 0)
@@ -66,38 +76,3 @@ private:
             return temp * x;
     }
 };
-
-```
-
-# Optimized Solution
-
-```cpp
-class Solution {
-public:
-    double binaryExp(double x, long long n) {
-        // Base case, to stop recursive calls.
-        if (n == 0) {
-            return 1;
-        }
-       
-        // Handle case where, n < 0.
-        if (n < 0) {
-            return 1.0 / binaryExp(x, -1 * n);
-        }
-       
-        // Perform Binary Exponentiation.
-        // If 'n' is odd we perform Binary Exponentiation on 'n - 1' and multiply result with 'x'.
-        if (n % 2 == 1) {
-            return x * binaryExp(x * x, (n - 1) / 2);
-        }
-        // Otherwise we calculate result by performing Binary Exponentiation on 'n'.
-        else {
-            return binaryExp(x * x, n / 2);
-        }
-    }
-
-    double myPow(double x, int n) {
-        return binaryExp(x, (long long) n);
-    }
-};
-```
