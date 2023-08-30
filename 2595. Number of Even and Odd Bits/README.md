@@ -28,7 +28,31 @@ Constraints:
 - 1 <= n <= 1000
 
 # Solution
-```cpp
+## Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+The intuition behind this solution is to convert the given integer `n` into its binary representation and then count the number of even and odd positions with a value of `1`.
+
+## Approach
+<!-- Describe your approach to solving the problem. -->
+The approach involves two main steps:
+
+1. Binary Conversion:
+The input integer `n` is converted to its binary representation. This is done by repeatedly dividing `n` by 2 and storing the remainders in reverse order. These remainders represent the binary bits of `n`.
+
+2. Counting Even and Odd Positions:
+After obtaining the binary representation, the code iterates through each bit position and counts the number of `1` bits in even and odd positions. The position of the bits is determined by the index in the binary representation.
+
+3. Returning the Result:
+Finally, the code returns a vector containing the counts of `1` bits in even and odd positions.
+## Complexity
+- Time complexity: O(log n)
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+
+- Space complexity: O(log n)
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+
+## Code
+```
 class Solution {
 public:
     vector<int> evenOddBit(int n) {
