@@ -32,14 +32,25 @@ Constraints:
 - `1 <= num, t <= 50`
 
 # My Solution
+## Intuition
+The intuition behind this solution is to increment the given number `num` by the value of `t` and then add `t` back to the result.
 
+## Approach
+The approach to solving this problem involves incrementing the number `num` by the value of `t` using a loop that iterates `t` times. After the loop, the value of `t` is added back to the result. The final result represents the maximum achievable value of `x` after the operations.
+
+## Complexity
+- Time complexity: **O(t)**  
+
+- Space complexity: **O(1)**  
+
+## Code
 ```cpp
 class Solution {
 public:
     int theMaximumAchievableX(int num, int t) {
         int x = t;
 
-        while(t > 0) {
+        while (t > 0) {
             num++;
             t--;
         }
