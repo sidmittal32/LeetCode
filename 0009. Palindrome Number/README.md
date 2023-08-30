@@ -31,23 +31,32 @@ Constraints:
 - `2^31 <= x <= 2^31 - 1`
 
 # My Solution
+## Intuition
+The intuition behind this solution is to determine whether a given integer `x` is a palindrome or not.
 
+## Approach
+The approach to solving this problem involves reversing the digits of the given integer and checking if the reversed number is equal to the original number. This is achieved by iteratively extracting the rightmost digit of the number and constructing the reversed number in reverse order.
+
+## Complexity
+- Time complexity: **O(log n)**  
+- Space complexity: **O(1)**  
+
+## Code
 ```cpp
 class Solution {
 public:
     bool isPalindrome(int x) {
         long long palin = 0, n = x;
 
-        while(x > 0) {
+        while (x > 0) {
             palin = palin * 10 + x % 10;
             x = x / 10;
         }
 
-        if(palin == n) {
+        if (palin == n) {
             return true;
         }
 
         return false;
     }
 };
-```
