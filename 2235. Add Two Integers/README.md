@@ -21,7 +21,22 @@ Constraints:
 - `-100 <= num1, num2 <= 100`
 
 # My Solution
-```cpp
+## Intuition
+<!-- Describe your first thoughts on how to solve this problem. -->
+The intuition behind this solution is straightforward. The goal is to calculate the sum of two given integers.
+
+## Approach
+<!-- Describe your approach to solving the problem. -->
+The approach to solving this problem is quite simple. We are provided with two integers, num1 and num2, and we need to return their sum. This can be achieved by directly adding the two numbers using the + operator.
+## Complexity
+- Time complexity: O(1)
+<!-- Add your time complexity here, e.g. $$O(n)$$ -->
+
+- Space complexity: O(1)
+<!-- Add your space complexity here, e.g. $$O(n)$$ -->
+
+## Code
+```
 class Solution {
 public:
     int sum(int num1, int num2) {
